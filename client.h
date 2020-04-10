@@ -23,7 +23,7 @@ public:
 		for(size_t total = 0; total < mess.size(); total+=n)
 		{
 			n = send(sock, buf+total, mess.size()-total, 0);
-			if (n == -1) break;
+			if (n == -1){close(sock); exit(0);} ;
 		}
 	}
 
@@ -33,7 +33,8 @@ public:
 		size_t size_buf = 150;
 		int n = 0;
 			n = recv(sock, buf, size_buf, 0);
-			buf[n] = '\0';
+			if (n == 0) {close(sock); exit(0);}
+			buf[n-1] = '\0';
 		return std::string(buf, n);
 	}
 	void Create() 

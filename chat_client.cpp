@@ -20,6 +20,7 @@ int main ()
 														for (string mess;getline(cin, mess);) {
 																conn.Send(move(mess));
 	}
+	exit(0);
 	});
 	read_data.detach();
 										for (;;) {
