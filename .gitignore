@@ -1,4 +1,4 @@
 *.o
 *.swp
-test
-test1
+server
+client
